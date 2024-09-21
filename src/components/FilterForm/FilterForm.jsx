@@ -1,4 +1,6 @@
 import { Formik, Field, Form, FieldArray } from 'formik';
+import Button from '../../shared/Button/Button';
+import css from '../FilterForm/FilterForm.module.css';
 
 export default function FilterForm() {
   const initialValues = { location: '', equipment: [], type: '' };
@@ -17,8 +19,16 @@ export default function FilterForm() {
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <Form>
-        <label htmlFor="location">Location</label>
-        <Field id="location" name="location" placeholder="Kyiv" />
+        <label className={css.locationLabel}>
+          Location
+          <Field
+            className={css.locationInput}
+            name="location"
+            placeholder="Kyiv, Ukraine"
+          />
+        </label>
+
+        <p className={css.text}>Filters</p>
 
         <FieldArray
           name="equipment"
@@ -53,7 +63,7 @@ export default function FilterForm() {
           </label>
         </div>
 
-        <button type="submit">Submit</button>
+        <Button text="Search" />
       </Form>
     </Formik>
   );
