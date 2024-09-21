@@ -16,7 +16,7 @@ export default function Header() {
           Home
         </NavLink>
         <NavLink className={makeLinkClass} to="/catalog">
-          Messages
+          Catalog
         </NavLink>
       </nav>
     </header>
