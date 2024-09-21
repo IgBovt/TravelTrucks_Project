@@ -1,0 +1,29 @@
+.container {
+  background-image: url('../../../public/images/Picturehero.jpg');
+  background-color: #dbd9d9;
+  flex: 1;
+  background-size: cover;
+  padding: 260px 64px;
+  background-repeat: no-repeat;
+}
+
+.header {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 32px;
+  color: var(--prime-text);
+  margin-bottom: 16px;
+}
+.text {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  color: var(--prime-text);
+  margin-bottom: 40px;
+}
+
+@media (min-resolution: 192dpi) {
+  .container {
+    background-image: url('../../../public/images/Picturehero@2x.jpg');
+  }
+}

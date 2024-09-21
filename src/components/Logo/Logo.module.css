@@ -1,0 +1,8 @@
+.text {
+  color: var(--main);
+  font-weight: 900;
+  font-size: 18px;
+}
+.addtext {
+  color: var(--secondary);
+}
