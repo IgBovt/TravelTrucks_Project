@@ -1,3 +1,6 @@
+.form {
+  margin-bottom: 48px;
+}
 .locationLabel {
   display: flex;
   flex-direction: column;
@@ -24,9 +27,40 @@
   color: var(--main);
 }
 .text {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
   color: var(--secondary-text);
   margin-bottom: 32px;
+}
+.equipmentContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+.textBold {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--main);
+  margin-bottom: 24px;
+}
+.box {
+  width: 112px;
+  height: 96px;
+  border-radius: 12px;
+  border: 1px solid var(--gray-light);
+}
+.activeBox {
+  border: 1px solid green;
+}
+.equipmentWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.checkbox {
+  display: none;
+}
+.string {
+  width: 360px;
+  margin-bottom: 24px;
+  border: 1px solid var(--gray-light);
 }

@@ -1,3 +1,6 @@
 .container {
+  width: 488px;
   padding: 48px 64px;
+  overflow: scroll;
+  height: 100vh;
 }
