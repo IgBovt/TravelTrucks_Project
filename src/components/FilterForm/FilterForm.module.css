@@ -24,7 +24,7 @@
   padding: 16px 20px;
 }
 .locationInput::placeholder {
-  color: var(--main);
+  color: var(--secondary-text);
 }
 .text {
   color: var(--secondary-text);
@@ -49,7 +49,7 @@
   border: 1px solid var(--gray-light);
 }
 .activeBox {
-  border: 1px solid green;
+  border: 1px solid var(--button);
 }
 .equipmentWrapper {
   display: flex;
@@ -63,4 +63,9 @@
   width: 360px;
   margin-bottom: 24px;
   border: 1px solid var(--gray-light);
+}
+.typeContainer {
+  display: flex;
+  margin-bottom: 40px;
+  gap: 12px;
 }
