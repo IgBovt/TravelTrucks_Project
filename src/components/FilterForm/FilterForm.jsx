@@ -72,6 +72,9 @@ export default function FilterForm() {
                 name="type"
                 value="One"
               />
+              <div>
+                <p>Van</p>
+              </div>
             </label>
             <label className={css.box}>
               <Field
@@ -80,6 +83,9 @@ export default function FilterForm() {
                 name="type"
                 value="Two"
               />
+              <div>
+                <p>Fully Integrated</p>
+              </div>
             </label>
             <label className={css.box}>
               <Field
@@ -88,6 +94,9 @@ export default function FilterForm() {
                 name="type"
                 value="Three"
               />
+              <div>
+                <p>Alcove</p>
+              </div>
             </label>
           </div>
           <Button text="Search" />
