@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import css from '../FilterForm/FilterForm.module.css';
 
 export default function FilterForm() {
-  const initialValues = { location: '', equipment: [], type: '' };
+  const initialValues = { location: '', equipment: [], type: [] };
 
   const handleSubmit = (value, { resetForm }) => {
     console.log(value);
@@ -81,11 +81,14 @@ export default function FilterForm() {
 
           <div className={css.typeContainer}>
             <label
-              className={clsx(css.box, values.type === 'One' && css.activeBox)}
+              className={clsx(
+                css.box,
+                values.type.includes('One') && css.activeBox
+              )}
             >
               <Field
                 className={css.checkbox}
-                type="radio"
+                type="checkbox"
                 name="type"
                 value="One"
               />
@@ -101,11 +104,14 @@ export default function FilterForm() {
               </div>
             </label>
             <label
-              className={clsx(css.box, values.type === 'Two' && css.activeBox)}
+              className={clsx(
+                css.box,
+                values.type.includes('Two') && css.activeBox
+              )}
             >
               <Field
                 className={css.checkbox}
-                type="radio"
+                type="checkbox"
                 name="type"
                 value="Two"
               />
@@ -122,12 +128,12 @@ export default function FilterForm() {
             <label
               className={clsx(
                 css.box,
-                values.type === 'Three' && css.activeBox
+                values.type.includes('Three') && css.activeBox
               )}
             >
               <Field
                 className={css.checkbox}
-                type="radio"
+                type="checkbox"
                 name="type"
                 value="Three"
               />
