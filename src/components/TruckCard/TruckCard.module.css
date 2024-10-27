@@ -1,0 +1,95 @@
+.container {
+  width: 888px;
+  height: 368px;
+  border: 1px solid var(--gray-light);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 24px;
+}
+.img {
+  width: 292px;
+  height: 320px;
+}
+.infoField {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+}
+.textInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.title,
+.price {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  color: var(--main);
+}
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.heartBtn {
+  border: none;
+  padding: 0;
+  background-color: inherit;
+  transition: all var(--transition);
+}
+.heartBtn:hover .iconHeart {
+  fill: var(--hover-button);
+}
+.ratingWrapper {
+  display: flex;
+  gap: 16px;
+}
+.locationContainer,
+.ratingContainer {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  color: var(--main);
+  font-weight: 400;
+  line-height: 24px;
+  font-size: 16px;
+}
+.iconLocation {
+  fill: var(--main);
+}
+.text {
+  color: var(--secondary);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+}
+.list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.listItem {
+  width: 143px;
+  height: 48px;
+  background-color: var(--badges);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}

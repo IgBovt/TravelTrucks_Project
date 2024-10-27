@@ -1,3 +1,5 @@
+import TruckList from '../TruckList/TruckList';
+
 export default function WorkPlace() {
-  return <p>WorkPlace</p>;
+  return <TruckList />;
 }
