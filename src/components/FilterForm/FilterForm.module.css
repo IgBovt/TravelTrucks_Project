@@ -10,6 +10,7 @@
   color: var(--secondary-text);
   gap: 8px;
   margin-bottom: 40px;
+  position: relative;
 }
 .locationInput {
   width: 360px;
@@ -21,7 +22,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  padding: 16px 20px;
+  padding: 16px 20px 16px 48px;
 }
 .locationInput::placeholder {
   color: var(--secondary-text);
@@ -47,6 +48,11 @@
   height: 96px;
   border-radius: 12px;
   border: 1px solid var(--gray-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 .activeBox {
   border: 1px solid var(--button);
@@ -69,9 +75,19 @@
   margin-bottom: 40px;
   gap: 12px;
 }
+.fueltext {
+  text-align: center;
+}
 
 /* ICONS */
-.icon {
-  fill: red;
-  stroke: red;
+.iconLocation {
+  fill: var(--main);
+  position: absolute;
+  left: 20px;
+  top: 60px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.iconVcehicle {
+  fill: var(--main);
 }

@@ -2,14 +2,16 @@ import { Formik, Field, Form, FieldArray } from 'formik';
 import Button from '../../shared/Button/Button';
 import Icon from '../../shared/Icon/Icon';
 import { cities } from '../../helpers/citiesList';
+import { equipment } from '../../helpers/equipmentArray';
 import clsx from 'clsx';
 import css from '../FilterForm/FilterForm.module.css';
 
 export default function FilterForm() {
   const initialValues = { location: '', equipment: [], type: '' };
 
-  const handleSubmit = value => {
+  const handleSubmit = (value, { resetForm }) => {
     console.log(value);
+    resetForm();
   };
 
   return (
@@ -29,8 +31,13 @@ export default function FilterForm() {
               placeholder="Kyiv, Ukraine"
               list="city-options"
             />
+            <Icon
+              className={css.iconLocation}
+              width="20"
+              height="20"
+              id="icon-map"
+            />
           </label>
-          <Icon className={css.icon} width="50" height="50" id="icon-diagram" />
 
           <p className={css.text}>Filters</p>
 
@@ -41,21 +48,27 @@ export default function FilterForm() {
                 <p className={css.textBold}>Vehicle equipment</p>
                 <hr className={css.string} />
                 <div className={css.equipmentWrapper}>
-                  {[1, 2, 3, 4, 5].map(value => (
+                  {equipment.map(item => (
                     <label
-                      key={value}
+                      key={item.value}
                       className={clsx(
                         css.box,
-                        values.equipment.includes(value.toString()) &&
-                          css.activeBox
+                        values.equipment.includes(item.value) && css.activeBox
                       )}
                     >
                       <Field
                         className={css.checkbox}
                         type="checkbox"
                         name="equipment"
-                        value={value.toString()}
+                        value={item.value}
                       />
+                      <Icon
+                        className={css.iconVcehicle}
+                        width="32"
+                        height="32"
+                        id={item.icon}
+                      />
+                      <p>{item.title}</p>
                     </label>
                   ))}
                 </div>
@@ -67,34 +80,62 @@ export default function FilterForm() {
           <hr className={css.string} />
 
           <div className={css.typeContainer}>
-            <label className={css.box}>
+            <label
+              className={clsx(css.box, values.type === 'One' && css.activeBox)}
+            >
               <Field
                 className={css.checkbox}
                 type="radio"
                 name="type"
                 value="One"
               />
+              <Icon
+                className={css.iconVcehicle}
+                width="32"
+                height="32"
+                id="van_type"
+              />
+
               <div>
                 <p>Van</p>
               </div>
             </label>
-            <label className={css.box}>
+            <label
+              className={clsx(css.box, values.type === 'Two' && css.activeBox)}
+            >
               <Field
                 className={css.checkbox}
                 type="radio"
                 name="type"
                 value="Two"
               />
+              <Icon
+                className={css.iconVcehicle}
+                width="32"
+                height="32"
+                id="icon-fuel"
+              />
               <div>
-                <p>Fully Integrated</p>
+                <p className={css.fueltext}>Fully Integrated</p>
               </div>
             </label>
-            <label className={css.box}>
+            <label
+              className={clsx(
+                css.box,
+                values.type === 'Three' && css.activeBox
+              )}
+            >
               <Field
                 className={css.checkbox}
                 type="radio"
                 name="type"
                 value="Three"
+              />
+              <Icon
+                className={css.iconVcehicle}
+                width="32"
+                height="32"
+                id="van_alcove"
               />
               <div>
                 <p>Alcove</p>
