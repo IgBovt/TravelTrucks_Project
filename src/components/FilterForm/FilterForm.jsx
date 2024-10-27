@@ -1,5 +1,6 @@
 import { Formik, Field, Form, FieldArray } from 'formik';
 import Button from '../../shared/Button/Button';
+import Icon from '../../shared/Icon/Icon';
 import { cities } from '../../helpers/citiesList';
 import clsx from 'clsx';
 import css from '../FilterForm/FilterForm.module.css';
@@ -29,6 +30,7 @@ export default function FilterForm() {
               list="city-options"
             />
           </label>
+          <Icon className={css.icon} width="50" height="50" id="icon-diagram" />
 
           <p className={css.text}>Filters</p>
 
