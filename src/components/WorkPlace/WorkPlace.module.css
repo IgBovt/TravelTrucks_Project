@@ -1,0 +1,22 @@
+.container {
+  padding: 48px 64px 96px 0px;
+  overflow: scroll;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.btn {
+  width: 145px;
+  height: 56px;
+  border: 1px solid var(--gray-light);
+  border-radius: 200px;
+  background-color: inherit;
+  padding: 16px 32px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all var(--transition);
+}
+.btn:hover {
+  border: 1px solid var(--hover-button);
+}
