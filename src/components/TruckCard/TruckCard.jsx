@@ -2,17 +2,25 @@ import LinkButton from '../../shared/LinkButton/LinkButton';
 import Icon from '../../shared/Icon/Icon';
 import css from '../TruckCard/TruckCard.module.css';
 
-export default function TruckCard({ name }) {
+export default function TruckCard({
+  name,
+  price,
+  description,
+  gallery,
+  location,
+  rating,
+  reviews,
+}) {
   return (
     <div className={css.container}>
-      <img className={css.img} src="/public/images/Pic.png" alt="TruckPhoto" />
+      <img className={css.img} src={gallery} alt="TruckPhoto" />
       <div className={css.infoField}>
         <div className={css.textInfo}>
           <div className={css.titleContainer}>
             <div className={css.titleWrapper}>
               <h3 className={css.title}>{name}</h3>
               <div className={css.priceContainer}>
-                <p className={css.price}>€8000.00</p>
+                <p className={css.price}>€ ${price}.00</p>
                 <button className={css.heartBtn}>
                   <Icon
                     className={css.iconHeart}
@@ -31,7 +39,9 @@ export default function TruckCard({ name }) {
                   height="16"
                   id="icon-Rating"
                 />
-                <p>4.4(2 Reviews)</p>
+                <p>
+                  {rating}({reviews} Reviews)
+                </p>
               </div>
               <div className={css.locationContainer}>
                 <Icon
@@ -41,15 +51,11 @@ export default function TruckCard({ name }) {
                   id="icon-map"
                 />
 
-                <p>Kyiv, Ukraine</p>
+                <p>{location}</p>
               </div>
             </div>
           </div>
-          <p className={css.text}>
-            Embrace simplicity and freedom with the Mavericks panel
-            truck...Embrace simplicity and freedom with the Mavericks panel
-            truck...
-          </p>
+          <p className={css.text}>{description}</p>
           <ul className={css.list}>
             <li className={css.listItem}>
               <Icon
