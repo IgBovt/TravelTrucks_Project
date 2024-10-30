@@ -5,7 +5,7 @@ import truckReducer from './trucks/slice'
 
 export const store = configureStore({
   reducer: {
-    truck: truckReducer,
+    trucks: truckReducer,
   },
 });
 

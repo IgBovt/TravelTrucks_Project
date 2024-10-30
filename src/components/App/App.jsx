@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { lazy } from 'react';
-
 import Layout from '../Layout/Layout';
+import { useDispatch } from 'react-redux';
+import { getTrucks } from '../../redux/trucks/operations';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const CataloguePage = lazy(() =>
@@ -14,6 +15,12 @@ const NotFoundPage = lazy(() =>
 );
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTrucks());
+  }, [dispatch]);
+
   return (
     <Layout>
       <Suspense>

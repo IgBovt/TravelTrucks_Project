@@ -2,7 +2,7 @@ import LinkButton from '../../shared/LinkButton/LinkButton';
 import Icon from '../../shared/Icon/Icon';
 import css from '../TruckCard/TruckCard.module.css';
 
-export default function TruckCard() {
+export default function TruckCard({ name }) {
   return (
     <div className={css.container}>
       <img className={css.img} src="/public/images/Pic.png" alt="TruckPhoto" />
@@ -10,7 +10,7 @@ export default function TruckCard() {
         <div className={css.textInfo}>
           <div className={css.titleContainer}>
             <div className={css.titleWrapper}>
-              <h3 className={css.title}>Mavericks</h3>
+              <h3 className={css.title}>{name}</h3>
               <div className={css.priceContainer}>
                 <p className={css.price}>€8000.00</p>
                 <button className={css.heartBtn}>

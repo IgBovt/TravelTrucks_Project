@@ -1,1 +1,1 @@
-export const selectAllTrucks = state => state.trucks || [];
+export const selectAllTrucks = state => state.trucks.trucks || [];
