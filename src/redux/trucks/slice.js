@@ -1,22 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getTrucks } from './operations';
+import { getAllTrucks, getTruck } from './operations';
 
 const slice = createSlice({
   name: 'trucks',
   initialState: {
     trucks: [],
+    truck: null,
     loading: false,
   },
   extraReducers: builder =>
     builder
-      .addCase(getTrucks.pending, state => {
+      .addCase(getAllTrucks.pending, state => {
         state.loading = true;
       })
-      .addCase(getTrucks.fulfilled, (state, action) => {
+      .addCase(getAllTrucks.fulfilled, (state, action) => {
         state.loading = false;
         state.trucks = action.payload.items;
       })
-      .addCase(getTrucks.rejected, state => {
+      .addCase(getAllTrucks.rejected, state => {
+        state.loading = false;
+      })
+      .addCase(getTruck.pending, state => {
+        state.loading = true;
+      })
+      .addCase(getTruck.fulfilled, (state, action) => {
+        state.loading = false;
+        state.truck = action.payload;
+      })
+      .addCase(getTruck.rejected, state => {
         state.loading = false;
       }),
 });

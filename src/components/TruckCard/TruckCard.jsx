@@ -30,7 +30,7 @@ export default function TruckCard({
             <div className={css.titleWrapper}>
               <h3 className={css.title}>{name}</h3>
               <div className={css.priceContainer}>
-                <p className={css.price}>€ {price}.00</p>
+                <p className={css.price}>€{price}.00</p>
                 <button className={css.heartBtn}>
                   <Icon
                     className={css.iconHeart}
