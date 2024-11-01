@@ -41,7 +41,7 @@ export default function TruckList() {
                 name={name}
                 price={price}
                 description={description}
-                gallery={gallery[0].thumb}
+                gallery={gallery[0].original}
                 location={location}
                 rating={rating}
                 reviews={reviews.length}

@@ -1,5 +1,6 @@
 .titleContainer {
   color: var(--main);
+  margin-bottom: 28px;
 }
 .title {
   font-weight: 600;
