@@ -1,5 +1,6 @@
 import LinkButton from '../../shared/LinkButton/LinkButton';
 import Icon from '../../shared/Icon/Icon';
+import OptionsItem from '../../shared/OptionsItem/OptionsItem';
 import css from '../TruckCard/TruckCard.module.css';
 
 export default function TruckCard({
@@ -10,6 +11,14 @@ export default function TruckCard({
   location,
   rating,
   reviews,
+  transmission,
+  engine,
+  kitchen,
+  AC,
+  water,
+  TV,
+  bathroom,
+  gas,
 }) {
   return (
     <div className={css.container}>
@@ -20,7 +29,7 @@ export default function TruckCard({
             <div className={css.titleWrapper}>
               <h3 className={css.title}>{name}</h3>
               <div className={css.priceContainer}>
-                <p className={css.price}>€ ${price}.00</p>
+                <p className={css.price}>€ {price}.00</p>
                 <button className={css.heartBtn}>
                   <Icon
                     className={css.iconHeart}
@@ -57,53 +66,33 @@ export default function TruckCard({
           </div>
           <p className={css.text}>{description}</p>
           <ul className={css.list}>
-            <li className={css.listItem}>
-              <Icon
-                className={css.iconItem}
-                width="20"
-                height="20"
-                id="icon-diagram"
+            <OptionsItem
+              icon={'icon-diagram'}
+              text={
+                transmission.charAt(0).toUpperCase() + transmission.slice(1) ||
+                'Unknow'
+              }
+            />
+            <OptionsItem
+              icon={'icon-fuel-pump'}
+              text={
+                engine.charAt(0).toUpperCase() + engine.slice(1) || 'Unknow'
+              }
+            />
+            {kitchen && <OptionsItem icon={'icon-cup-hot'} text={'Kitchen'} />}
+            {AC && <OptionsItem icon={'icon-wind'} text={'AC'} />}
+            {water && <OptionsItem icon={'water'} text={'Water'} />}
+            {TV && <OptionsItem icon={'icon-tv'} text={'TV'} />}
+            {bathroom && (
+              <OptionsItem icon={'icon-ph_shower'} text={'Bathroom'} />
+            )}
+            {gas && (
+              <OptionsItem
+                className={css.icon}
+                icon={'icon-fire'}
+                text={'Gas'}
               />
-
-              <p>Automatic</p>
-            </li>
-            <li className={css.listItem}>
-              {' '}
-              <Icon
-                className={css.iconItem}
-                width="20"
-                height="20"
-                id="icon-diagram"
-              />
-              <p>Automatic</p>
-            </li>
-            <li className={css.listItem}>
-              <Icon
-                className={css.iconItem}
-                width="20"
-                height="20"
-                id="icon-diagram"
-              />
-              <p>Automatic</p>
-            </li>
-            <li className={css.listItem}>
-              <Icon
-                className={css.iconItem}
-                width="20"
-                height="20"
-                id="icon-diagram"
-              />
-              <p>Automatic</p>
-            </li>
-            <li className={css.listItem}>
-              <Icon
-                className={css.iconItem}
-                width="20"
-                height="20"
-                id="icon-diagram"
-              />
-              <p>Automatic</p>
-            </li>
+            )}
           </ul>
         </div>
         <LinkButton route="/catalog/:id" text="Show more" width={166} />
