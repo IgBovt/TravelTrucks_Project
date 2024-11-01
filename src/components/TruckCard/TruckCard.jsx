@@ -19,6 +19,7 @@ export default function TruckCard({
   TV,
   bathroom,
   gas,
+  id,
 }) {
   return (
     <div className={css.container}>
@@ -95,7 +96,7 @@ export default function TruckCard({
             )}
           </ul>
         </div>
-        <LinkButton route="/catalog/:id" text="Show more" width={166} />
+        <LinkButton route={`/catalog/${id}`} text="Show more" width={166} />
       </div>
     </div>
   );

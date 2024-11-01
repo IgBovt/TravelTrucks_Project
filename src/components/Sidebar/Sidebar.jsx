@@ -3,8 +3,8 @@ import css from '../Sidebar/Sidebar.module.css';
 
 export default function Sidebar() {
   return (
-    <div className={css.container}>
+    <aside className={css.container}>
       <FilterForm />
-    </div>
+    </aside>
   );
 }

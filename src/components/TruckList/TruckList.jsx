@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 
 export default function TruckList() {
   const trucks = useSelector(selectAllTrucks);
-  console.log(trucks);
 
   return (
     <ul className={css.list}>
@@ -46,6 +45,7 @@ export default function TruckList() {
                 TV={TV}
                 bathroom={bathroom}
                 gas={gas}
+                id={id}
               />
             </li>
           );
