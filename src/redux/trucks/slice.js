@@ -8,6 +8,11 @@ const slice = createSlice({
     truck: null,
     loading: false,
   },
+  reducers: {
+    resetTruck: (state) => {
+      state.truck = null;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getAllTrucks.pending, state => {
@@ -33,3 +38,4 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
+export const { resetTruck } = slice.actions;

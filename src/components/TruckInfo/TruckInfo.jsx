@@ -10,28 +10,30 @@ import { useParams } from 'react-router';
 export default function TruckInfo() {
   const dispatch = useDispatch();
   const id = useParams();
-  const { name, rating, reviews, location, price } = useSelector(selectTruck);
+  const truck = useSelector(selectTruck);
 
   useEffect(() => {
     dispatch(getTruck(id.id));
   }, [dispatch, id]);
 
   return (
-    <section className={css.titleContainer}>
-      <h1 className={css.title}>{name}</h1>
-      <div className={css.ratingContainer}>
-        <div className={css.rating}>
-          <Icon width="16" height="16" id="icon-Rating" />
-          <p>
-            {rating} ({reviews.length} Reviews)
-          </p>
+    truck && (
+      <section className={css.titleContainer}>
+        <h1 className={css.title}>{truck.name}</h1>
+        <div className={css.ratingContainer}>
+          <div className={css.rating}>
+            <Icon width="16" height="16" id="icon-Rating" />
+            <p>
+              {truck.rating} ({truck.reviews.length} Reviews)
+            </p>
+          </div>
+          <div className={css.location}>
+            <Icon width="16" height="16" id="icon-map" />
+            <p>{truck.location}</p>
+          </div>
         </div>
-        <div className={css.location}>
-          <Icon width="16" height="16" id="icon-map" />
-          <p>{location}</p>
-        </div>
-      </div>
-      <p className={css.price}>€{price}.00</p>
-    </section>
+        <p className={css.price}>€{truck.price}.00</p>
+      </section>
+    )
   );
 }
