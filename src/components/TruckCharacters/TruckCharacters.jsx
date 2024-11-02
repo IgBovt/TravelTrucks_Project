@@ -34,7 +34,11 @@ export default function TruckCharacters() {
       </div>
       <hr />
       <div className={css.container}>
-        <div className={css.featuresContainer}>
+        <div
+          className={`${css.featuresContainer} ${
+            activeButton === 'Features' ? css.showed : ''
+          }`}
+        >
           <Features />
           <BookForm />
         </div>

@@ -24,8 +24,14 @@
 }
 .container {
   margin-top: 44px;
+  overflow: hidden;
 }
 .featuresContainer {
   display: flex;
   gap: 40px;
+  transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.showed {
+  transform: translateX(-100%);
+  transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
