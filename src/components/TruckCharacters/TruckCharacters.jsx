@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import css from '../TruckCharacters/TruckCharacters.module.css';
+import Features from '../Features/Features';
 
 export default function TruckCharacters() {
   const [activeButton, setActiveButton] = useState('Features');
@@ -31,7 +32,12 @@ export default function TruckCharacters() {
         </button>
       </div>
       <hr />
-      <div></div>
+      <div>
+        <div>
+          <Features />
+        </div>
+        <div></div>
+      </div>
     </section>
   );
 }
