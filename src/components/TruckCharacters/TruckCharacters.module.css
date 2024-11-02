@@ -1,0 +1,24 @@
+.btnContainer {
+  margin-bottom: 24px;
+}
+.btn {
+  margin-right: 40px;
+  padding: 0;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--main);
+  position: relative;
+}
+.active::after {
+  content: '';
+  top: 48px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background-color: var(--button);
+  position: absolute;
+}

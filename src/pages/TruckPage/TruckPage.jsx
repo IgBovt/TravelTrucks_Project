@@ -1,3 +1,4 @@
+import TruckCharacters from '../../components/TruckCharacters/TruckCharacters';
 import TruckInfo from '../../components/TruckInfo/TruckInfo';
 import TrucksGallery from '../../components/TrucksGallery/TrucksGallery';
 import css from '../TruckPage/TruckPage.module.css';
@@ -7,6 +8,7 @@ export default function TruckPage() {
     <div className={css.container}>
       <TruckInfo />
       <TrucksGallery />
+      <TruckCharacters />
     </div>
   );
 }

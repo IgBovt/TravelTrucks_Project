@@ -1,3 +1,6 @@
+.section {
+  margin-bottom: 60px;
+}
 .list {
   display: flex;
   gap: 48px;

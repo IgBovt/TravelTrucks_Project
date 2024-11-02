@@ -8,22 +8,19 @@ import ImageModal from '../ImagesModal/ImagesModal';
 export default function TrucksGallery() {
   const truck = useSelector(selectTruck);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
 
-  function openModal(image) {
-    setSelectedImage(image);
+  function openModal() {
     setIsOpen(true);
   }
 
   function closeModal() {
     setIsOpen(false);
-    setSelectedImage(null);
   }
 
   return (
     <>
       {truck && (
-        <section>
+        <section className={css.section}>
           <ul className={css.list}>
             {truck.gallery.map(img => (
               <li
