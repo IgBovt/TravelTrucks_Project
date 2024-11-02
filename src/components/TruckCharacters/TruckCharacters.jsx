@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import css from '../TruckCharacters/TruckCharacters.module.css';
 import Features from '../Features/Features';
+import BookForm from '../../shared/BookForm/BookForm';
 
 export default function TruckCharacters() {
   const [activeButton, setActiveButton] = useState('Features');
@@ -33,8 +34,9 @@ export default function TruckCharacters() {
       </div>
       <hr />
       <div className={css.container}>
-        <div>
+        <div className={css.featuresContainer}>
           <Features />
+          <BookForm />
         </div>
         <div></div>
       </div>

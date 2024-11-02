@@ -25,3 +25,7 @@
 .container {
   margin-top: 44px;
 }
+.featuresContainer {
+  display: flex;
+  gap: 40px;
+}
