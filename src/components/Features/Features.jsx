@@ -22,13 +22,6 @@ export default function Features() {
               'Unknow'
             }
           />
-          <OptionsItem
-            icon={'van_alcove'}
-            text={
-              truck.form.charAt(0).toUpperCase() + truck.form.slice(1) ||
-              'Unknow'
-            }
-          />
           {truck.gas && <OptionsItem icon="icon-fire" text="Gas" />}
           {truck.kitchen && (
             <OptionsItem icon={'icon-cup-hot'} text={'Kitchen'} />
@@ -49,7 +42,53 @@ export default function Features() {
           />
           {truck.water && <OptionsItem icon={'water'} text={'Water'} />}
         </ul>
-        <div></div>
+        <h5 className={css.detailsTitle}>Vehicle details</h5>
+        <hr />
+        <ul className={css.detailList}>
+          <li className={css.detailItem}>
+            <p>Form</p>
+            <p>
+              {truck.form.charAt(0).toUpperCase() + truck.form.slice(1) ||
+                'Unknown'}
+            </p>
+          </li>
+          <li className={css.detailItem}>
+            <p>Length</p>
+            {truck && (
+              <p>
+                {truck.length.slice(0, 3)} {truck.length.slice(-1)}
+              </p>
+            )}
+          </li>
+          <li className={css.detailItem}>
+            <p>Width</p>
+            {truck && (
+              <p>
+                {truck.width.slice(0, 4)} {truck.width.slice(-1)}
+              </p>
+            )}
+          </li>
+          <li className={css.detailItem}>
+            <p>Height</p>
+            {truck && (
+              <p>
+                {truck.height.slice(0, 4)} {truck.width.slice(-1)}
+              </p>
+            )}
+          </li>
+          <li className={css.detailItem}>
+            <p>Tank</p>
+            {truck && (
+              <p>
+                {truck.tank.slice(0, 4)} {truck.tank.slice(-1)}
+              </p>
+            )}
+          </li>
+          <li className={css.detailItem}>
+            <p>Consumption</p>
+            {truck && <p>{truck.consumption}</p>}
+          </li>
+        </ul>
       </div>
     )
   );

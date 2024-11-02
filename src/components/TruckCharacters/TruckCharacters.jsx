@@ -32,7 +32,7 @@ export default function TruckCharacters() {
         </button>
       </div>
       <hr />
-      <div>
+      <div className={css.container}>
         <div>
           <Features />
         </div>

@@ -1,7 +1,7 @@
 .listItem {
   padding: 12px 18px;
   height: 48px;
-  background-color: var(--badges);
+  background-color: var(--li);
   border-radius: 100px;
   display: flex;
   align-items: center;

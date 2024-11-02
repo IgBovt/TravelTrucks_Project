@@ -1,10 +1,33 @@
 .container {
   padding: 44px 52px;
   background-color: var(--prime-text);
-  width: 50%;
+  max-width: 50%;
+  border-radius: 8px;
 }
 .featuresList {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+.detailsTitle {
+  font-weight: 600px;
+  font-size: 20px;
+  line-height: 24px;
+  color: var(--main);
+  margin-bottom: 24px;
+}
+.detailList {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.detailItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--main);
+  display: flex;
+  justify-content: space-between;
 }
