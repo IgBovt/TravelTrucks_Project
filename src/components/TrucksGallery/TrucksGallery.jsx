@@ -38,11 +38,13 @@ export default function TrucksGallery() {
           <p className={css.text}>{truck.description}</p>
         </section>
       )}
-      <ImageModal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
-        imageLink={selectedImage}
-      />
+      {truck && truck.gallery && (
+        <ImageModal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          gallery={truck.gallery || []}
+        />
+      )}
     </>
   );
 }
