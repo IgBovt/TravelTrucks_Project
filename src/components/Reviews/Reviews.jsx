@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux';
 import css from '../Reviews/Reviews.module.css';
 import { selectTruck } from '../../redux/trucks/selectors';
 import { nanoid } from '@reduxjs/toolkit';
+import StarsRating from '../StarsRating/StarsRating';
 
 export default function Reviews() {
   const truck = useSelector(selectTruck);
-  console.log(truck);
 
   return (
     truck && (
@@ -20,7 +20,7 @@ export default function Reviews() {
                   </div>
                   <div>
                     <div className={css.name}>{item.reviewer_name}</div>
-                    <div>{item.reviewer_rating}</div>
+                    <StarsRating rating={item.reviewer_rating} />
                   </div>
                 </div>
                 <p className={css.text}>{item.comment}</p>

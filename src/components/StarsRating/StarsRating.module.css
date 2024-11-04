@@ -1,0 +1,12 @@
+.stars {
+  display: flex;
+}
+
+.star {
+  font-size: 16px;
+  color: var(--badges);
+}
+
+.filled {
+  color: #ffc531;
+}
