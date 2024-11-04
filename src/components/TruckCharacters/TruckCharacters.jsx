@@ -2,6 +2,7 @@ import { useState } from 'react';
 import css from '../TruckCharacters/TruckCharacters.module.css';
 import Features from '../Features/Features';
 import BookForm from '../../shared/BookForm/BookForm';
+import Reviews from '../Reviews/Reviews';
 
 export default function TruckCharacters() {
   const [activeButton, setActiveButton] = useState('Features');
@@ -43,6 +44,7 @@ export default function TruckCharacters() {
           <BookForm />
         </div>
         <div className={css.reviewsContainer}>
+          <Reviews />
           <BookForm />
         </div>
       </div>
