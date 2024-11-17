@@ -2,8 +2,6 @@ import { Route, Routes } from 'react-router';
 import { Suspense, useEffect } from 'react';
 import { lazy } from 'react';
 import Layout from '../Layout/Layout';
-import { useDispatch } from 'react-redux';
-import { getAllTrucks } from '../../redux/trucks/operations';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const CataloguePage = lazy(() =>
@@ -15,12 +13,6 @@ const NotFoundPage = lazy(() =>
 );
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAllTrucks());
-  }, [dispatch]);
-
   return (
     <Layout>
       <Suspense>

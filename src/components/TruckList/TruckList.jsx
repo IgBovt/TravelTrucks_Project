@@ -1,19 +1,7 @@
 import TruckCard from '../TruckCard/TruckCard';
 import css from '../TruckList/TruckList.module.css';
-import { selectAllTrucks } from '../../redux/trucks/selectors';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { resetTruck } from '../../redux/trucks/slice';
 
-export default function TruckList() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(resetTruck());
-  }, [dispatch]);
-
-  const trucks = useSelector(selectAllTrucks);
-
+export default function TruckList({ trucks }) {
   return (
     <ul className={css.list}>
       {trucks.map(

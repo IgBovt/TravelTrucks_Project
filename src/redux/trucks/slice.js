@@ -5,6 +5,7 @@ const slice = createSlice({
   name: 'trucks',
   initialState: {
     trucks: [],
+    total: null,
     truck: null,
     loading: false,
   },
@@ -20,7 +21,9 @@ const slice = createSlice({
       })
       .addCase(getAllTrucks.fulfilled, (state, action) => {
         state.loading = false;
+        state.total = action.payload.total
         state.trucks = action.payload.items;
+
       })
       .addCase(getAllTrucks.rejected, state => {
         state.loading = false;
