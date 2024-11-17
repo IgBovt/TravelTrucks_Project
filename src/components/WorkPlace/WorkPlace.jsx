@@ -1,38 +1,32 @@
 import TruckList from '../TruckList/TruckList';
 import { getAllTrucks } from '../../redux/trucks/operations';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAllTrucks } from '../../redux/trucks/selectors';
-import { resetTruck } from '../../redux/trucks/slice';
-
+import {
+  selectAllTrucks,
+  selectCurrentPage,
+  selectDisplayedTrucks,
+  selectItemsPerPage,
+} from '../../redux/trucks/selectors';
+import { loadMoreTrucks, resetTruck } from '../../redux/trucks/slice';
 import css from '../WorkPlace/WorkPlace.module.css';
 
 export default function WorkPlace() {
   const dispatch = useDispatch();
   const trucks = useSelector(selectAllTrucks);
-  const [displayedTrucks, setDisplayedTrucks] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const displayedTrucks = useSelector(selectDisplayedTrucks);
+  const currentPage = useSelector(selectCurrentPage);
+  const itemsPerPage = useSelector(selectItemsPerPage);
 
   useEffect(() => {
     dispatch(resetTruck());
-    dispatch(getAllTrucks());
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (trucks.length > 0 && displayedTrucks.length === 0) {
-      setDisplayedTrucks(trucks.slice(0, itemsPerPage));
+    if (displayedTrucks.length === 0) {
+      dispatch(getAllTrucks());
     }
-  }, [trucks, itemsPerPage, displayedTrucks.length]);
+  }, [dispatch, displayedTrucks]);
 
   const handleLoadMore = () => {
-    const nextPage = currentPage + 1;
-    const newItems = trucks.slice(
-      currentPage * itemsPerPage,
-      nextPage * itemsPerPage
-    );
-    setDisplayedTrucks(prevTrucks => [...prevTrucks, ...newItems]);
-    setCurrentPage(nextPage);
+    dispatch(loadMoreTrucks());
   };
 
   return (
