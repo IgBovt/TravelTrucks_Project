@@ -3,9 +3,11 @@ import { instance } from '../../API/apiInstance';
 
 export const getAllTrucks = createAsyncThunk(
   'trucks/getAllTrucks',
-  async (_, thunkAPI) => {
+  async (filterParams, thunkAPI) => {
     try {
-      const response = await instance.get('/campers');
+      const response = await instance.get('/campers', {
+        params: filterParams, 
+      });
       return response.data;
     } catch (error) {
       console.log(error);

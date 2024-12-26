@@ -5,11 +5,15 @@ import { cities } from '../../helpers/citiesList';
 import { equipment } from '../../helpers/equipmentArray';
 import clsx from 'clsx';
 import css from '../FilterForm/FilterForm.module.css';
+import { useDispatch } from 'react-redux';
+import { getAllTrucks } from '../../redux/trucks/operations';
 
 export default function FilterForm() {
   const initialValues = { location: '', equipment: [], type: [] };
+  const dispatch = useDispatch();
 
   const handleSubmit = (value, { resetForm }) => {
+    dispatch(getAllTrucks(value));
     console.log(value);
     resetForm();
   };
