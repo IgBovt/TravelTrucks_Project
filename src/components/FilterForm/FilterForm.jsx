@@ -12,9 +12,20 @@ export default function FilterForm() {
   const initialValues = { location: '' };
   const dispatch = useDispatch();
 
-  const handleSubmit = (value, { resetForm }) => {
-    dispatch(getAllTrucks(value));
-    console.log(value);
+  const handleSubmit = (values, { resetForm }) => {
+    const filteredValues = Object.entries(values).reduce(
+      (acc, [key, value]) => {
+        if (value !== false) {
+          acc[key] = value;
+        }
+        return acc;
+      },
+      {}
+    );
+    dispatch(getAllTrucks(filteredValues));
+    console.log(values);
+    console.log(filteredValues);
+
     resetForm();
   };
 
@@ -78,40 +89,6 @@ export default function FilterForm() {
             </ul>
           </div>
 
-          {/* <FieldArray
-            name="equipment"
-            render={() => (
-              <div className={css.equipmentContainer}>
-                <p className={css.textBold}>Vehicle equipment</p>
-                <hr className={css.string} />
-                <div className={css.equipmentWrapper}>
-                  {equipment.map(item => (
-                    <label
-                      key={item.value}
-                      className={clsx(
-                        css.box,
-                        values.equipment.includes(item.value) && css.activeBox
-                      )}
-                    >
-                      <Field
-                        className={css.checkbox}
-                        type="checkbox"
-                        name="equipment"
-                        value={item.value}
-                      />
-                      <Icon
-                        className={css.iconVcehicle}
-                        width="32"
-                        height="32"
-                        id={item.icon}
-                      />
-                      <p>{item.title}</p>
-                    </label>
-                  ))}
-                </div>
-              </div>
-            )}
-          /> */}
           {/* <p className={css.textBold}>Vehicle type</p>
           <hr className={css.string} />
           <div className={css.typeContainer}>
