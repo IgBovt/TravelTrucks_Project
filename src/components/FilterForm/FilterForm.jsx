@@ -1,4 +1,4 @@
-import { Formik, Field, Form, FieldArray } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import Button from '../../shared/Button/Button';
 import Icon from '../../shared/Icon/Icon';
 import { cities } from '../../helpers/citiesList';
@@ -9,11 +9,11 @@ import { useDispatch } from 'react-redux';
 import { getAllTrucks } from '../../redux/trucks/operations';
 
 export default function FilterForm() {
-  const initialValues = { location: '', equipment: [], type: [] };
+  const initialValues = { location: '' };
   const dispatch = useDispatch();
 
   const handleSubmit = (value, { resetForm }) => {
-    // dispatch(getAllTrucks(value));
+    dispatch(getAllTrucks(value));
     console.log(value);
     resetForm();
   };
@@ -43,9 +43,39 @@ export default function FilterForm() {
             />
           </label>
 
-          <p className={css.text}>Filters</p>
+          <div className={css.equipmentContainer}>
+            <p className={css.text}>Filters</p>
+            <p className={css.textBold}>Vehicle equipment</p>
+            <hr className={css.string} />
+            <ul className={css.equipmentList}>
+              {equipment.map(item => (
+                <li key={item.title}>
+                  <label
+                    className={clsx(
+                      css.box,
+                      values[item.title] && css.activeBox
+                    )}
+                  >
+                    <Field
+                      className={css.checkbox}
+                      type="checkbox"
+                      id={item.title}
+                      name={item.title}
+                    />
+                    <Icon
+                      className={css.iconVcehicle}
+                      width="32"
+                      height="32"
+                      id={item.icon}
+                    />
+                    <p>{item.title}</p>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          <FieldArray
+          {/* <FieldArray
             name="equipment"
             render={() => (
               <div className={css.equipmentContainer}>
@@ -78,11 +108,9 @@ export default function FilterForm() {
                 </div>
               </div>
             )}
-          />
-
-          <p className={css.textBold}>Vehicle type</p>
+          /> */}
+          {/* <p className={css.textBold}>Vehicle type</p>
           <hr className={css.string} />
-
           <div className={css.typeContainer}>
             <label
               className={clsx(
@@ -151,7 +179,7 @@ export default function FilterForm() {
                 <p>Alcove</p>
               </div>
             </label>
-          </div>
+          </div> */}
           <Button text="Search" />
         </Form>
       )}

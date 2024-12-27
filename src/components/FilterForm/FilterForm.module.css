@@ -31,6 +31,7 @@
   color: var(--secondary-text);
   margin-bottom: 32px;
 }
+
 .equipmentContainer {
   display: flex;
   flex-direction: column;
@@ -43,6 +44,12 @@
   color: var(--main);
   margin-bottom: 24px;
 }
+.string {
+  width: 360px;
+  margin-bottom: 24px;
+  border: 1px solid var(--gray-light);
+}
+
 .box {
   width: 112px;
   height: 96px;
@@ -55,10 +62,7 @@
   gap: 8px;
   cursor: pointer;
 }
-.activeBox {
-  border: 1px solid var(--button);
-}
-.equipmentWrapper {
+.equipmentList {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -66,10 +70,8 @@
 .checkbox {
   display: none;
 }
-.string {
-  width: 360px;
-  margin-bottom: 24px;
-  border: 1px solid var(--gray-light);
+.activeBox {
+  border: 1px solid var(--button);
 }
 .typeContainer {
   display: flex;
