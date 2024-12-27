@@ -1,7 +1,6 @@
-export  const cities = ['Kyiv, Ukraine',
+export  const cities = [
   'Ukraine, Lviv',
-  'Ukraine, Odessa',
+  'Ukraine, Kyiv',
   'Ukraine, Kharkiv',
   'Ukraine, Dnipro',
-  'Ukraine, Ivano-Frankivsk',
   'Ukraine, Poltava']
