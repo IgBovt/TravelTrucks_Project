@@ -125,3 +125,14 @@ GET /campers для отримання всіх оголошень (можна �
 - відступи в слайдері
 - шрифт
 - відстилізувати прокрутку
+- aдаптив (зробив home page)
+
+
+<!-- <button className={css.filterBtn} type="button">
+        <Icon
+          className={css.filterIcon}
+          width={16}
+          height={16}
+          id={'icon-filter'}
+        />
+      </button> -->

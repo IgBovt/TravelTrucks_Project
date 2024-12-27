@@ -2,6 +2,7 @@ import css from '../Header/Header.module.css';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import Logo from '../Logo/Logo';
+import Icon from '../../shared/Icon/Icon';
 
 export default function Header() {
   const makeLinkClass = ({ isActive }) => {

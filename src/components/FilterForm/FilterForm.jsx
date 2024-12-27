@@ -13,7 +13,7 @@ export default function FilterForm() {
   const dispatch = useDispatch();
 
   const handleSubmit = (value, { resetForm }) => {
-    dispatch(getAllTrucks(value));
+    // dispatch(getAllTrucks(value));
     console.log(value);
     resetForm();
   };
