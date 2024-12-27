@@ -68,7 +68,10 @@ export default function FilterForm() {
                       height="32"
                       id={item.icon}
                     />
-                    <p>{item.title}</p>
+                    <p>
+                      {item.title.toUpperCase().slice(0, 1) +
+                        item.title.slice(1)}
+                    </p>
                   </label>
                 </li>
               ))}
