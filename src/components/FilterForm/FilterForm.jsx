@@ -5,28 +5,34 @@ import { cities } from '../../helpers/citiesList';
 import { equipment } from '../../helpers/equipmentArray';
 import clsx from 'clsx';
 import css from '../FilterForm/FilterForm.module.css';
-import { useDispatch } from 'react-redux';
-import { getAllTrucks } from '../../redux/trucks/operations';
+import { useDispatch, useSelector } from 'react-redux';
+// import { getAllTrucks } from '../../redux/trucks/operations';
+import { changeFilter } from '../../redux/trucks/slice';
+import { selectAllTrucks } from '../../redux/trucks/selectors';
 
 export default function FilterForm() {
   const initialValues = { location: '' };
   const dispatch = useDispatch();
+  const trucks = useSelector(selectAllTrucks);
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = values => {
     const filteredValues = Object.entries(values).reduce(
       (acc, [key, value]) => {
-        if (value !== false) {
+        if (value !== false && value !== '') {
           acc[key] = value;
         }
         return acc;
       },
       {}
     );
-    dispatch(getAllTrucks(filteredValues));
-    console.log(values);
-    console.log(filteredValues);
 
-    resetForm();
+    const filteredTrucks = trucks.filter(truck =>
+      Object.entries(filteredValues).every(
+        ([key, value]) => truck[key] === value
+      )
+    );
+
+    dispatch(changeFilter(filteredTrucks));
   };
 
   return (
