@@ -89,20 +89,20 @@ export default function FilterForm() {
             </ul>
           </div>
 
-          {/* <p className={css.textBold}>Vehicle type</p>
+          <p className={css.textBold}>Vehicle type</p>
           <hr className={css.string} />
           <div className={css.typeContainer}>
             <label
               className={clsx(
                 css.box,
-                values.type.includes('One') && css.activeBox
+                values.form === 'panelTruck' && css.activeBox
               )}
             >
               <Field
                 className={css.checkbox}
-                type="checkbox"
-                name="type"
-                value="One"
+                type="radio"
+                name="form"
+                value="panelTruck"
               />
               <Icon
                 className={css.iconVcehicle}
@@ -118,14 +118,14 @@ export default function FilterForm() {
             <label
               className={clsx(
                 css.box,
-                values.type.includes('Two') && css.activeBox
+                values.form === 'fullyIntegrated' && css.activeBox
               )}
             >
               <Field
                 className={css.checkbox}
-                type="checkbox"
-                name="type"
-                value="Two"
+                type="radio"
+                name="form"
+                value="fullyIntegrated"
               />
               <Icon
                 className={css.iconVcehicle}
@@ -140,14 +140,14 @@ export default function FilterForm() {
             <label
               className={clsx(
                 css.box,
-                values.type.includes('Three') && css.activeBox
+                values.form === 'alcove' && css.activeBox
               )}
             >
               <Field
                 className={css.checkbox}
-                type="checkbox"
-                name="type"
-                value="Three"
+                type="radio"
+                name="form"
+                value="alcove"
               />
               <Icon
                 className={css.iconVcehicle}
@@ -159,7 +159,7 @@ export default function FilterForm() {
                 <p>Alcove</p>
               </div>
             </label>
-          </div> */}
+          </div>
           <Button text="Search" />
         </Form>
       )}
