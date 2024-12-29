@@ -9,7 +9,7 @@ import {
   selectFilteredTrucks,
   selectItemsPerPage,
 } from '../../redux/trucks/selectors';
-import { loadMoreTrucks, resetTruck } from '../../redux/trucks/slice';
+import { loadMoreTrucks } from '../../redux/trucks/slice';
 import css from '../WorkPlace/WorkPlace.module.css';
 
 export default function WorkPlace() {
@@ -22,11 +22,8 @@ export default function WorkPlace() {
   const sourceTrucks = filteredTrucks.length > 0 ? filteredTrucks : trucks;
 
   useEffect(() => {
-    dispatch(resetTruck());
-    if (displayedTrucks.length === 0) {
-      dispatch(getAllTrucks());
-    }
-  }, [dispatch, displayedTrucks]);
+    dispatch(getAllTrucks());
+  }, [dispatch]);
 
   const handleLoadMore = () => {
     dispatch(loadMoreTrucks());
