@@ -20,3 +20,10 @@
 .btn:hover {
   border: 1px solid var(--hover-button);
 }
+.text {
+  display: block;
+  width: 880px;
+  color: var(--secondary);
+  padding-left: 100px;
+  margin-top: 60px;
+}

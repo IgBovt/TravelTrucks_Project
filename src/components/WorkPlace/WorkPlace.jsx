@@ -6,6 +6,7 @@ import {
   selectAllTrucks,
   selectCurrentPage,
   selectDisplayedTrucks,
+  selectEmptyFilter,
   selectFilteredTrucks,
   selectItemsPerPage,
 } from '../../redux/trucks/selectors';
@@ -19,6 +20,7 @@ export default function WorkPlace() {
   const displayedTrucks = useSelector(selectDisplayedTrucks);
   const currentPage = useSelector(selectCurrentPage);
   const itemsPerPage = useSelector(selectItemsPerPage);
+  const emptyFilter = useSelector(selectEmptyFilter);
   const sourceTrucks = filteredTrucks.length > 0 ? filteredTrucks : trucks;
 
   useEffect(() => {
@@ -32,10 +34,16 @@ export default function WorkPlace() {
   return (
     <div className={css.container}>
       <TruckList trucks={displayedTrucks} />
-      {currentPage * itemsPerPage < sourceTrucks.length && (
-        <button className={css.btn} onClick={handleLoadMore}>
-          Load more
-        </button>
+      {emptyFilter ? (
+        <p className={css.text}>
+          Sorry, the positions you selected are unfortunately taken...
+        </p>
+      ) : (
+        currentPage * itemsPerPage < sourceTrucks.length && (
+          <button className={css.btn} onClick={handleLoadMore}>
+            Load more
+          </button>
+        )
       )}
     </div>
   );

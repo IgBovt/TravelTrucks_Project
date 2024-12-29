@@ -6,7 +6,6 @@ import { equipment } from '../../helpers/equipmentArray';
 import clsx from 'clsx';
 import css from '../FilterForm/FilterForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-// import { getAllTrucks } from '../../redux/trucks/operations';
 import { changeFilter } from '../../redux/trucks/slice';
 import { selectAllTrucks } from '../../redux/trucks/selectors';
 

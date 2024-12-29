@@ -12,6 +12,7 @@ const slice = createSlice({
     displayedTrucks: [],
     currentPage: 1,
     itemsPerPage: 4,
+    emptyFilter: false
   },
   reducers: {
     resetTruck: state => {
@@ -33,9 +34,11 @@ const slice = createSlice({
       state.currentPage = 1;
     },
     changeFilter: (state, action) => {
+      state.emptyFilter = false
       state.filteredTrucks = action.payload;
       state.displayedTrucks = action.payload.slice(0, state.itemsPerPage);
       state.currentPage = 1;
+      if (action.payload.length === 0 ) {state.emptyFilter = true} 
     },
   },
   extraReducers: builder =>
