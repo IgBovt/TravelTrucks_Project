@@ -14,25 +14,28 @@ const slice = createSlice({
     itemsPerPage: 4,
   },
   reducers: {
-    resetTruck: (state) => {
+    resetTruck: state => {
       state.truck = null;
     },
-    loadMoreTrucks: (state) => {
+    loadMoreTrucks: state => {
+      const sourceTrucks =
+        state.filteredTrucks.length > 0 ? state.filteredTrucks : state.trucks;
+
       const startIndex = state.currentPage * state.itemsPerPage;
       const endIndex = startIndex + state.itemsPerPage;
-      const newItems = state.trucks.slice(startIndex, endIndex);
-      
+      const newItems = sourceTrucks.slice(startIndex, endIndex);
 
       state.displayedTrucks = [...state.displayedTrucks, ...newItems];
       state.currentPage += 1;
-
     },
-    resetDisplayedTrucks: (state) => {
+    resetDisplayedTrucks: state => {
       state.displayedTrucks = [];
       state.currentPage = 1;
     },
     changeFilter: (state, action) => {
-      state.filteredTrucks = action.payload
+      state.filteredTrucks = action.payload;
+      state.displayedTrucks = action.payload.slice(0, state.itemsPerPage);
+      state.currentPage = 1;
     },
   },
   extraReducers: builder =>
@@ -42,7 +45,7 @@ const slice = createSlice({
       })
       .addCase(getAllTrucks.fulfilled, (state, action) => {
         state.loading = false;
-        state.total = action.payload.total
+        state.total = action.payload.total;
         state.trucks = action.payload.items || [];
 
         const initialItems = action.payload.items.slice(0, state.itemsPerPage);
@@ -65,4 +68,9 @@ const slice = createSlice({
 });
 
 export default slice.reducer;
-export const { resetTruck, loadMoreTrucks, resetDisplayedTrucks, changeFilter } = slice.actions;
+export const {
+  resetTruck,
+  loadMoreTrucks,
+  resetDisplayedTrucks,
+  changeFilter,
+} = slice.actions;
