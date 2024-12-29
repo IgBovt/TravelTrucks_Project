@@ -2,7 +2,6 @@ import css from '../Header/Header.module.css';
 import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
 import Logo from '../Logo/Logo';
-import Icon from '../../shared/Icon/Icon';
 
 export default function Header() {
   const makeLinkClass = ({ isActive }) => {
@@ -18,6 +17,9 @@ export default function Header() {
         </NavLink>
         <NavLink className={makeLinkClass} to="/catalog" end>
           Catalog
+        </NavLink>
+        <NavLink className={makeLinkClass} to="/favorites" end>
+          Favorites
         </NavLink>
       </nav>
     </header>
