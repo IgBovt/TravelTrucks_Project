@@ -1,9 +1,5 @@
-import css from '../FavoritesPage/FavoritesPage.module.css';
+import Loader from '../../shared/Loader/Loader';
 
 export default function FavoritesPage() {
-  return (
-    <div className={css.container}>
-      <p>favorites</p>
-    </div>
-  );
+  return <Loader />;
 }

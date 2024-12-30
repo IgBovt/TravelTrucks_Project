@@ -1,0 +1,21 @@
+.container {
+  margin-right: auto;
+  width: 400px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.icon {
+  position: absolute;
+  animation: moveCar 2s linear infinite;
+}
+@keyframes moveCar {
+  0% {
+    left: 0;
+    fill: var(--secondary);
+  }
+  100% {
+    left: 240px;
+    fill: var(--hover-button);
+  }
+}
