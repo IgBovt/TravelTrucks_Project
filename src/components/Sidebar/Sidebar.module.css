@@ -1,6 +1,14 @@
 .container {
-  width: 488px;
-  padding: 48px 64px;
-  overflow: scroll;
-  height: 100vh;
+  display: none;
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 1200px) {
+  .container {
+    display: block;
+    width: 488px;
+    padding: 48px 64px;
+    overflow: scroll;
+    height: 100vh;
+  }
 }

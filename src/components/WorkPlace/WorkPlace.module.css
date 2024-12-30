@@ -1,10 +1,11 @@
 .container {
-  padding: 48px 64px 96px 0px;
+  padding-bottom: 80px;
+  padding-top: 28px;
   overflow: scroll;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  position: relative;
 }
 .btn {
   width: 145px;
@@ -26,4 +27,32 @@
   color: var(--secondary);
   padding-left: 100px;
   margin-top: 60px;
+}
+.filterBtn {
+  width: 32px;
+  height: 32px;
+  background-color: inherit;
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  position: fixed;
+  top: 72px;
+  right: 10px;
+}
+.icon {
+  fill: var(--secondary);
+}
+@media (min-width: 1200px) {
+  .container {
+    padding: 24px 64px 96px 0px;
+    overflow: scroll;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .filterBtn {
+    display: none;
+  }
 }

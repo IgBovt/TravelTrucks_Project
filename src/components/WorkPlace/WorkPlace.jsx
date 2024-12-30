@@ -12,6 +12,7 @@ import {
 } from '../../redux/trucks/selectors';
 import { loadMoreTrucks } from '../../redux/trucks/slice';
 import css from '../WorkPlace/WorkPlace.module.css';
+import Icon from '../../shared/Icon/Icon';
 
 export default function WorkPlace() {
   const dispatch = useDispatch();
@@ -33,6 +34,9 @@ export default function WorkPlace() {
 
   return (
     <div className={css.container}>
+      <button className={css.filterBtn} type="button">
+        <Icon className={css.icon} width="16" height="16" id="icon-filter" />
+      </button>
       <TruckList trucks={displayedTrucks} />
       {emptyFilter ? (
         <p className={css.text}>
