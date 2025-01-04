@@ -1,5 +1,5 @@
 .form {
-  margin-bottom: 48px;
+  padding: 16px;
 }
 .locationLabel {
   display: flex;
@@ -9,7 +9,7 @@
   line-height: 24px;
   color: var(--secondary-text);
   gap: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   position: relative;
 }
 .locationInput {
@@ -93,4 +93,13 @@
 }
 .iconVcehicle {
   fill: var(--main);
+}
+
+@media (min-width: 768px) {
+}
+@media (min-width: 1200px) {
+  .form {
+    margin-bottom: 48px;
+    padding: 0;
+  }
 }
