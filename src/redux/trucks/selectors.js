@@ -6,4 +6,5 @@ export const selectCurrentPage = state => state.trucks.currentPage
 export const selectItemsPerPage = state => state.trucks.itemsPerPage
 export const selectFilteredTrucks = state => state.trucks.filteredTrucks
 export const selectEmptyFilter = state => state.trucks.emptyFilter
+export const selectLoader = state => state.trucks.loading
 

@@ -9,9 +9,11 @@ import {
   selectEmptyFilter,
   selectFilteredTrucks,
   selectItemsPerPage,
+  selectLoader,
 } from '../../redux/trucks/selectors';
 import { loadMoreTrucks } from '../../redux/trucks/slice';
 import css from '../WorkPlace/WorkPlace.module.css';
+import Loader from '../../shared/Loader/Loader';
 import Icon from '../../shared/Icon/Icon';
 
 export default function WorkPlace() {
@@ -22,6 +24,7 @@ export default function WorkPlace() {
   const currentPage = useSelector(selectCurrentPage);
   const itemsPerPage = useSelector(selectItemsPerPage);
   const emptyFilter = useSelector(selectEmptyFilter);
+  const loading = useSelector(selectLoader);
   const sourceTrucks = filteredTrucks.length > 0 ? filteredTrucks : trucks;
 
   useEffect(() => {
@@ -33,22 +36,25 @@ export default function WorkPlace() {
   };
 
   return (
-    <div className={css.container}>
-      <button className={css.filterBtn} type="button">
-        <Icon className={css.icon} width="16" height="16" id="icon-filter" />
-      </button>
-      <TruckList trucks={displayedTrucks} />
-      {emptyFilter ? (
-        <p className={css.text}>
-          Sorry, the positions you selected are unfortunately taken...
-        </p>
-      ) : (
-        currentPage * itemsPerPage < sourceTrucks.length && (
-          <button className={css.btn} onClick={handleLoadMore}>
-            Load more
-          </button>
-        )
-      )}
-    </div>
+    <>
+      {loading && <Loader />}
+      <div className={css.container}>
+        <button className={css.filterBtn} type="button">
+          <Icon className={css.icon} width="16" height="16" id="icon-filter" />
+        </button>
+        <TruckList trucks={displayedTrucks} />
+        {emptyFilter ? (
+          <p className={css.text}>
+            Sorry, the positions you selected are unfortunately taken...
+          </p>
+        ) : (
+          currentPage * itemsPerPage < sourceTrucks.length && (
+            <button className={css.btn} onClick={handleLoadMore}>
+              Load more
+            </button>
+          )
+        )}
+      </div>
+    </>
   );
 }

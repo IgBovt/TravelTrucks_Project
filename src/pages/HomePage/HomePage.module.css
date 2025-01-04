@@ -1,5 +1,5 @@
 .container {
-  background-image: url('../../../public/images/Picturehero.jpg');
+  background-image: url('/public/images/Picturehero.jpg');
   background-color: #dbd9d9;
   flex: 1;
   background-size: cover;
@@ -47,6 +47,6 @@
 
 @media (min-resolution: 192dpi) {
   .container {
-    background-image: url('../../../public/images/Picturehero@2x.jpg');
+    background-image: url('/images/Picturehero@2x.jpg');
   }
 }
