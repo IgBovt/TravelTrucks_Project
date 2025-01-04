@@ -38,7 +38,8 @@ const slice = createSlice({
       state.filteredTrucks = action.payload;
       state.displayedTrucks = action.payload.slice(0, state.itemsPerPage);
       state.currentPage = 1;
-      if (action.payload.length === 0 ) {state.emptyFilter = true} 
+      if (action.payload.length === 0) { state.emptyFilter = true } 
+
     },
   },
   extraReducers: builder =>

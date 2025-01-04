@@ -38,23 +38,30 @@ export default function WorkPlace() {
   return (
     <>
       {loading && <Loader />}
-      <div className={css.container}>
-        <button className={css.filterBtn} type="button">
-          <Icon className={css.icon} width="16" height="16" id="icon-filter" />
-        </button>
-        <TruckList trucks={displayedTrucks} />
-        {emptyFilter ? (
-          <p className={css.text}>
-            Sorry, the positions you selected are unfortunately taken...
-          </p>
-        ) : (
-          currentPage * itemsPerPage < sourceTrucks.length && (
-            <button className={css.btn} onClick={handleLoadMore}>
-              Load more
-            </button>
-          )
-        )}
-      </div>
+      {!loading && (
+        <div className={css.container}>
+          <button className={css.filterBtn} type="button">
+            <Icon
+              className={css.icon}
+              width="16"
+              height="16"
+              id="icon-filter"
+            />
+          </button>
+          <TruckList trucks={displayedTrucks} />
+          {emptyFilter ? (
+            <p className={css.text}>
+              Sorry, the positions you selected are unfortunately taken...
+            </p>
+          ) : (
+            currentPage * itemsPerPage < sourceTrucks.length && (
+              <button className={css.btn} onClick={handleLoadMore}>
+                Load more
+              </button>
+            )
+          )}
+        </div>
+      )}
     </>
   );
 }
