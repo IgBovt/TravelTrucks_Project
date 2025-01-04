@@ -4,6 +4,7 @@
   gap: 44px;
   height: 640px;
   overflow: auto;
+  width: 632px;
 }
 .container {
   display: flex;
