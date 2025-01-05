@@ -52,7 +52,7 @@ export default function BookForm() {
             className={css.textarea}
             as="textarea"
             name="coment"
-            placeholder="Comment*"
+            placeholder="Comment"
           />
 
           <div className={css.btn}>

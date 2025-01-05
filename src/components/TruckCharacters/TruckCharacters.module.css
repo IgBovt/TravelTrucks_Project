@@ -1,36 +1,35 @@
 .btnContainer {
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 .btn {
-  margin-right: 40px;
+  margin-right: 32px;
   padding: 0;
   border: none;
   background-color: inherit;
   cursor: pointer;
   font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 16px;
+  line-height: 18px;
   color: var(--main);
   position: relative;
 }
 
 .active::after {
   content: '';
-  top: 48px;
+  top: 34px;
   left: 0;
-  width: 80px;
+  width: 64px;
   height: 4px;
   background-color: var(--button);
   position: absolute;
 }
 
 .container {
-  margin-top: 44px;
+  margin-top: 32px;
   display: flex;
   overflow: hidden;
   position: relative;
-  /* gap: 12px; */
 }
 
 .featuresContainer,
@@ -39,8 +38,8 @@
   flex-shrink: 0;
   transition: transform 1200ms cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
-  gap: 40px;
-  padding: 0 12px;
+  gap: 12px;
+  padding: 0 4px;
 }
 
 .showReviews .featuresContainer {
@@ -49,4 +48,38 @@
 
 .showReviews .reviewsContainer {
   transform: translateX(-100%);
+}
+@media (min-width: 1200px) {
+  .btnContainer {
+    margin-bottom: 24px;
+  }
+
+  .btn {
+    margin-right: 40px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .active::after {
+    top: 48px;
+    width: 80px;
+  }
+
+  .container {
+    margin-top: 44px;
+  }
+
+  .featuresContainer,
+  .reviewsContainer {
+    gap: 40px;
+    padding: 0 12px;
+  }
+
+  .showReviews .featuresContainer {
+    transform: translateX(-100%);
+  }
+
+  .showReviews .reviewsContainer {
+    transform: translateX(-100%);
+  }
 }
