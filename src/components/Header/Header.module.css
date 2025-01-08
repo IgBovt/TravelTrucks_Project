@@ -42,7 +42,7 @@
     height: 72px;
     padding: 24px 64px;
     gap: 250px;
-    justify-content: start;
+    justify-content: space-between;
   }
 
   .link {
@@ -51,15 +51,5 @@
   }
   .nav {
     gap: 32px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    gap: 450px;
-    justify-content: space-between;
-  }
-  .nav {
-    margin-right: 160px;
   }
 }

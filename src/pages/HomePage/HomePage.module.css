@@ -39,7 +39,7 @@
     margin-bottom: 40px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1440px) {
   .container {
     padding: 260px 64px;
   }
