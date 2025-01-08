@@ -97,12 +97,20 @@
   flex-wrap: wrap;
 }
 @media (min-width: 768px) {
+  .container {
+    width: 400px;
+    max-height: 368px;
+    padding: 12px;
+    display: flex;
+    gap: 8px;
+    max-height: 260px;
+    box-sizing: border-box;
+  }
 }
 @media (min-width: 1200px) {
   .container {
-    max-height: 368px;
-    width: 888px;
-    height: 368px;
+    width: 800px;
+    max-height: 600px;
     padding: 24px;
     display: flex;
     gap: 24px;
@@ -156,5 +164,11 @@
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
+  }
+}
+@media (min-width: 1440px) {
+  .container {
+    width: 888px;
+    max-height: 368px;
   }
 }

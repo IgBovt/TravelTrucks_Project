@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 20px;
   overflow: auto;
-  width: 632px;
+  max-width: 50%;
 }
 .container {
   display: flex;
