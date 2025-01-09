@@ -57,6 +57,7 @@ export default function BookForm() {
               placeholderText="Select a date"
               minDate={new Date()}
               dateFormat="dd.MM.yyyy"
+              portalId="root-portal"
             />
 
             <Field
