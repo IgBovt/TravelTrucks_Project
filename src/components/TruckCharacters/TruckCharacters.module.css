@@ -50,7 +50,7 @@
 .showReviews .reviewsContainer {
   transform: translateX(-100%);
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   .btnContainer {
     margin-bottom: 24px;
   }
@@ -72,15 +72,14 @@
 
   .featuresContainer,
   .reviewsContainer {
-    gap: 40px;
+    gap: 24px;
     padding: 0 12px;
   }
-
-  .showReviews .featuresContainer {
-    transform: translateX(-100%);
-  }
-
-  .showReviews .reviewsContainer {
-    transform: translateX(-100%);
+}
+@media (min-width: 1440px) {
+  .featuresContainer,
+  .reviewsContainer {
+    gap: 40px;
+    padding: 0 12px;
   }
 }

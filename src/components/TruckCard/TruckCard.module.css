@@ -99,7 +99,7 @@
 @media (min-width: 768px) {
   .container {
     width: 400px;
-    max-height: 368px;
+    max-height: 400px;
     padding: 12px;
     display: flex;
     gap: 8px;

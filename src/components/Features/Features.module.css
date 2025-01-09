@@ -31,6 +31,31 @@
   display: flex;
   justify-content: space-between;
 }
+@media (min-width: 768px) {
+  .container {
+    padding: 16px 24px;
+    width: 632px;
+  }
+  .featuresList {
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+  .detailsTitle {
+    font-weight: 600px;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
+  .detailList {
+    margin-top: 24px;
+    gap: 12px;
+  }
+  .detailItem {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
 @media (min-width: 1200px) {
   .container {
     padding: 44px 52px;
