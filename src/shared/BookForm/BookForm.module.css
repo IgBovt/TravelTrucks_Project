@@ -47,6 +47,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 @media (min-width: 768px) {
   .formContainer {
     padding: 16px 24px;

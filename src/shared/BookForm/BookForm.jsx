@@ -1,10 +1,12 @@
 import { Formik, Field, Form } from 'formik';
 import css from '../BookForm/BookForm.module.css';
 import Button from '../Button/Button';
-
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './DatePickerStyles.css';
 export default function BookForm() {
-  const handleSubmit = (value, { resetForm }) => {
-    console.log(value);
+  const handleSubmit = (values, { resetForm }) => {
+    console.log(values);
     resetForm();
   };
 
@@ -29,36 +31,46 @@ export default function BookForm() {
         }}
         onSubmit={handleSubmit}
       >
-        <Form className={css.form}>
-          <Field
-            className={css.input}
-            type="text"
-            name="name"
-            placeholder="Name*"
-            required
-          />
+        {({ setFieldValue, values }) => (
+          <Form className={css.form}>
+            <Field
+              className={css.input}
+              type="text"
+              name="name"
+              placeholder="Name*"
+              required
+            />
 
-          <Field
-            className={css.input}
-            type="email"
-            name="email"
-            placeholder="Email*"
-            required
-          />
+            <Field
+              className={css.input}
+              type="email"
+              name="email"
+              placeholder="Email*"
+              required
+            />
 
-          <Field className={css.input} type="date" name="date" required />
+            <DatePicker
+              className={css.input}
+              popperClassName={css.customDatePicker}
+              selected={values.date}
+              onChange={date => setFieldValue('date', date)}
+              placeholderText="Select a date"
+              minDate={new Date()}
+              dateFormat="dd.MM.yyyy"
+            />
 
-          <Field
-            className={css.textarea}
-            as="textarea"
-            name="coment"
-            placeholder="Comment"
-          />
+            <Field
+              className={css.textarea}
+              as="textarea"
+              name="coment"
+              placeholder="Comment"
+            />
 
-          <div className={css.btn}>
-            <Button text="Send" />
-          </div>
-        </Form>
+            <div className={css.btn}>
+              <Button text="Send" />
+            </div>
+          </Form>
+        )}
       </Formik>
     </div>
   );
