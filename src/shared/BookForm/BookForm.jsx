@@ -17,7 +17,12 @@ export default function BookForm() {
         Stay connected! We are always ready to help you.
       </p>
       <Formik
-        initialValues={{ name: '', email: '', date: '', coment: '' }}
+        initialValues={{
+          name: null,
+          email: null,
+          date: null,
+          coment: null,
+        }}
         validate={values => {
           const errors = {};
           if (!values.email) {
@@ -59,7 +64,6 @@ export default function BookForm() {
               dateFormat="dd.MM.yyyy"
               portalId="root-portal"
             />
-
             <Field
               className={css.textarea}
               as="textarea"
