@@ -18,10 +18,10 @@ export default function BookForm() {
       </p>
       <Formik
         initialValues={{
-          name: null,
-          email: null,
+          name: '',
+          email: '',
           date: null,
-          coment: null,
+          coment: '',
         }}
         validate={values => {
           const errors = {};
