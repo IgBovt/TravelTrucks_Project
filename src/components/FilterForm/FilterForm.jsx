@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from '../../redux/trucks/slice';
 import { selectAllTrucks } from '../../redux/trucks/selectors';
 
-export default function FilterForm({ openSidebar }) {
+export default function FilterForm({ closeSidebar }) {
   const initialValues = { location: '' };
   const dispatch = useDispatch();
   const trucks = useSelector(selectAllTrucks);
@@ -33,7 +33,7 @@ export default function FilterForm({ openSidebar }) {
 
     dispatch(changeFilter(filteredTrucks));
 
-    openSidebar();
+    closeSidebar();
   };
 
   return (

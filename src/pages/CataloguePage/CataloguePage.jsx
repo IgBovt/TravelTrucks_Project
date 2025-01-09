@@ -12,13 +12,15 @@ export default function CataloguePage() {
   const openSidebar = () => {
     setIsSidebarOpen(prevState => !prevState);
   };
-
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
   useEffect(() => {
     dispatch(resetTruck());
   }, [dispatch]);
   return (
     <div className={css.container}>
-      <Sidebar isOpen={isSidebarOpen} openSidebar={openSidebar} />
+      <Sidebar isOpen={isSidebarOpen} closeSidebar={closeSidebar} />
       <WorkPlace isOpen={isSidebarOpen} openSidebar={openSidebar} />
     </div>
   );
