@@ -63,7 +63,11 @@
   background-color: inherit;
   transition: all var(--transition);
 }
+
 .heartBtn:hover .iconHeart {
+  fill: var(--hover-button);
+}
+.active .iconHeart {
   fill: var(--hover-button);
 }
 .ratingWrapper {

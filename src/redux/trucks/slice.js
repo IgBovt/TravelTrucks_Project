@@ -6,13 +6,14 @@ const slice = createSlice({
   initialState: {
     trucks: [],
     filteredTrucks: [],
+    favoritesTrucks: [],
     total: null,
     truck: null,
     loading: false,
     displayedTrucks: [],
     currentPage: 1,
     itemsPerPage: 4,
-    emptyFilter: false
+    emptyFilter: false,
   },
   reducers: {
     resetTruck: state => {
@@ -34,12 +35,30 @@ const slice = createSlice({
       state.currentPage = 1;
     },
     changeFilter: (state, action) => {
-      state.emptyFilter = false
+      state.emptyFilter = false;
       state.filteredTrucks = action.payload;
       state.displayedTrucks = action.payload.slice(0, state.itemsPerPage);
       state.currentPage = 1;
-      if (action.payload.length === 0) { state.emptyFilter = true } 
+      if (action.payload.length === 0) {
+        state.emptyFilter = true;
+      }
+    },
+    addToFavorites: (state, action) => {
+      const truckId = action.payload;
+      const truck = state.trucks.find(truck => truck.id == truckId);
 
+      if (truck) {
+        const isFavorite = state.favoritesTrucks.some(
+          favTruck => favTruck.id == truckId
+        );
+        if (isFavorite) {
+          state.favoritesTrucks = state.favoritesTrucks.filter(
+            favTruck => favTruck.id !== truckId
+          );
+        } else {
+          state.favoritesTrucks.push(truck);
+        }
+      }
     },
   },
   extraReducers: builder =>
@@ -77,4 +96,5 @@ export const {
   loadMoreTrucks,
   resetDisplayedTrucks,
   changeFilter,
+  addToFavorites,
 } = slice.actions;

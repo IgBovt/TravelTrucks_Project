@@ -2,6 +2,10 @@ import LinkButton from '../../shared/LinkButton/LinkButton';
 import Icon from '../../shared/Icon/Icon';
 import OptionsItem from '../../shared/OptionsItem/OptionsItem';
 import css from '../TruckCard/TruckCard.module.css';
+import { useDispatch } from 'react-redux';
+import { addToFavorites } from '../../redux/trucks/slice';
+import clsx from 'clsx';
+import { useState } from 'react';
 
 export default function TruckCard({
   name,
@@ -21,6 +25,17 @@ export default function TruckCard({
   gas,
   id,
 }) {
+  const [isActive, setIsActive] = useState(false);
+  const dispatch = useDispatch();
+
+  const makeButtonClass = ({ isActive }) => {
+    return clsx(css.heartBtn, isActive && css.active);
+  };
+
+  const toggleFavorites = () => {
+    dispatch(addToFavorites(id));
+    setIsActive(prev => !prev);
+  };
   return (
     <div className={css.container}>
       <img className={css.img} src={gallery} alt="TruckPhoto" />
@@ -31,7 +46,11 @@ export default function TruckCard({
               <h3 className={css.title}>{name}</h3>
               <div className={css.priceContainer}>
                 <p className={css.price}>€{price}.00</p>
-                <button className={css.heartBtn}>
+                <button
+                  className={makeButtonClass(isActive)}
+                  type="button"
+                  onClick={toggleFavorites}
+                >
                   <Icon
                     className={css.iconHeart}
                     width="24"
