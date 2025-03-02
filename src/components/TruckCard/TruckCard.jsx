@@ -28,7 +28,7 @@ export default function TruckCard({
   const [isActive, setIsActive] = useState(false);
   const dispatch = useDispatch();
 
-  const makeButtonClass = ({ isActive }) => {
+  const makeButtonClass = () => {
     return clsx(css.heartBtn, isActive && css.active);
   };
 
@@ -47,7 +47,7 @@ export default function TruckCard({
               <div className={css.priceContainer}>
                 <p className={css.price}>€{price}.00</p>
                 <button
-                  className={makeButtonClass(isActive)}
+                  className={makeButtonClass()}
                   type="button"
                   onClick={toggleFavorites}
                 >
