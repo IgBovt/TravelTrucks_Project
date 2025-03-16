@@ -2,10 +2,11 @@ import LinkButton from '../../shared/LinkButton/LinkButton';
 import Icon from '../../shared/Icon/Icon';
 import OptionsItem from '../../shared/OptionsItem/OptionsItem';
 import css from '../TruckCard/TruckCard.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToFavorites } from '../../redux/trucks/slice';
 import clsx from 'clsx';
 import { useState } from 'react';
+import { selectFavoritesTrucks } from '../../redux/trucks/selectors';
 
 export default function TruckCard({
   name,
@@ -27,9 +28,11 @@ export default function TruckCard({
 }) {
   const [isActive, setIsActive] = useState(false);
   const dispatch = useDispatch();
+  const favorites = useSelector(selectFavoritesTrucks);
+  const isFavorite = favorites.some(card => card.id === id);
 
   const makeButtonClass = () => {
-    return clsx(css.heartBtn, isActive && css.active);
+    return clsx(css.heartBtn, isActive && css.active, isFavorite && css.active);
   };
 
   const toggleFavorites = () => {
